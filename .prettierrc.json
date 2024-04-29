@@ -22,6 +22,19 @@
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
   "plugins": [
-    "@trivago/prettier-plugin-sort-imports"
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-organize-attributes"
+  ],
+  "attributeGroups": [
+    "^class$",
+    "^(id|name)$",
+    "^data-",
+    "^(src|for|type|href|value)$",
+    "^(title|alt)$",
+    "^role$",
+    "^aria-",
+    "^tabindex$",
+    "^style$",
+    "$DEFAULT"
   ]
 }
