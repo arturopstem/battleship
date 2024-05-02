@@ -1,0 +1,11 @@
+header {
+  background-color: slateblue;
+}
+
+.header-content {
+  width: min-content;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 2.5svw, 2.5rem);
+}
