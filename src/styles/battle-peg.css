@@ -1,0 +1,25 @@
+battle-peg {
+  grid-row: var(--peg-row) / span 1;
+  grid-column: var(--peg-column) / span 1;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  display: grid;
+  place-items: center;
+
+  &::before {
+    content: "";
+    width: 75%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: var(--peg-color);
+  }
+
+  animation-name: fade-in;
+  animation-play-state: paused;
+  animation-duration: 1s;
+
+  &.fade-in {
+    animation-play-state: running;
+  }
+}
