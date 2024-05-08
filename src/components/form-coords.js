@@ -22,7 +22,6 @@ class FormCoords extends HTMLFormElement {
       input.minLength = 2;
       input.maxLength = 3;
       input.size = 3;
-      input.autofocus = true;
 
       input.addEventListener('input', (e) => {
         e.target.value = e.target.value.toUpperCase();
