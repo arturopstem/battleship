@@ -90,4 +90,28 @@ function randomShipCoords(length) {
   return coordsList;
 }
 
-export { areEqual, getShipCoordsList, hasOverlap, parse, randomShipCoords };
+function allShipsCoords(ships) {
+  return ships.reduce((acc, cur) => [...acc, ...cur.coordinates], []);
+}
+
+function randomAttackCoords() {
+  const row = Math.floor(Math.random() * 10);
+  const col = Math.floor(Math.random() * 10);
+
+  return [row, col];
+}
+
+function existsOn(coord, list) {
+  return list.some((element) => areEqual(coord, element));
+}
+
+export {
+  areEqual,
+  allShipsCoords,
+  existsOn,
+  getShipCoordsList,
+  hasOverlap,
+  parse,
+  randomAttackCoords,
+  randomShipCoords,
+};
