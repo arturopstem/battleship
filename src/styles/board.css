@@ -11,6 +11,11 @@ tracking-board {
   }
 }
 
+.boards {
+  width: min-content;
+  margin: auto;
+}
+
 .board {
   width: 350px;
   height: 350px;
