@@ -26,6 +26,12 @@ function init() {
 
   const formCoords = new FormCoords();
   boards.appendChild(formCoords);
+
+  const resultModalForm = document.querySelector('.result-modal form');
+  resultModalForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    window.location.reload();
+  });
 }
 
 function activateForm(realPlayer, realPlayerPieces) {
@@ -67,6 +73,8 @@ function activateForm(realPlayer, realPlayerPieces) {
 function activateTrackingBoard(realPlayer, computer) {
   const trackingBoard = document.querySelector('tracking-board');
   const placementBoard = document.querySelector('placement-board');
+  const resultModal = document.querySelector('.result-modal');
+  const resultMessage = resultModal.querySelector('.result-message');
   const attacksDoneByComputer = [];
 
   trackingBoard.addEventListener('click', (e) => {
@@ -78,7 +86,9 @@ function activateTrackingBoard(realPlayer, computer) {
       const hitComputer = computerBoard.receiveAttack(row, col);
       trackingBoard.displayPeg(hitComputer ? 'red' : 'white', row, col);
       if (computerBoard.hasAllShipsSunk()) {
-        console.log('HUMAN WINS');
+        resultMessage.innerText = 'Gratz You Win!';
+        resultModal.style.setProperty('--result-color', 'green');
+        resultModal.showModal();
         return;
       }
 
@@ -91,7 +101,9 @@ function activateTrackingBoard(realPlayer, computer) {
       const hitReal = realBoard.receiveAttack(...attackCoord);
       placementBoard.displayPeg(hitReal ? 'red' : 'white', ...attackCoord);
       if (realBoard.hasAllShipsSunk()) {
-        console.log('COMPUTER WINS');
+        resultMessage.innerText = 'You Lose!';
+        resultModal.style.setProperty('--result-color', 'red');
+        resultModal.showModal();
       }
     }
   });
