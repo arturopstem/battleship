@@ -9,3 +9,14 @@ header {
   align-items: center;
   gap: clamp(1.5rem, 2.5svw, 2.5rem);
 }
+
+button {
+  appearance: none;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: slateblue;
+}
+
+button:hover {
+  background-color: mediumslateblue;
+}
